@@ -2,8 +2,11 @@
 
 Robust REST ful Web Service
 //Created by Mitesh Purohit under guidence by DAMS.
+
 // Git Hub https://github.com/MiteshPurohit
+
 //use sts tool reduce time for adding jar and etc.
+
 // before creating this project open ur tomcat server to check ur server started or not type (localhost) in your browser.
 
 #sts steps :
@@ -20,12 +23,10 @@ Robust REST ful Web Service
  #Greeting.java
 
 package hello;
-
 public class Greeting
  {
     private final long id;
     private final String content;
-
     public Greeting(long id, String content)
     {
         this.id = id;
@@ -35,9 +36,7 @@ public class Greeting
     public long getId()
     {
         return id;
-    }
-
-    public String getContent() 
+    }public String getContent() 
     {
         return content;
     }
@@ -49,44 +48,24 @@ public class Greeting
  #GreetingController.java
 
 package hello;
-
-
-
 import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RequestParam;
-
 import org.springframework.web.bind.annotation.RestController;
 
-
-
 @RestController
-public 
 
+public 
 class GreetingController 
 {
-
-   
-	 private static final String template = "Hello, %s!";
-    
-	 private final AtomicLong counter = new AtomicLong();
-
-   
-	
-	 @RequestMapping("/greeting")
-    
-
-	public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) 
-	
-	{
-        
-		return new Greeting(counter.incrementAndGet(),
-       
+        private static final String template = "Hello, %s!";
+         private final AtomicLong counter = new AtomicLong();
+      @RequestMapping("/greeting")
+    	public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) 
+		{
+        	return new Greeting(counter.incrementAndGet(),
                 String.format(template, name));
-   
 	}
-
 }
 
 
@@ -97,30 +76,16 @@ class GreetingController
 
 
 package hello;
-
-
-
 import org.springframework.boot.SpringApplication;
-
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-
 
 @SpringBootApplication
 
-
 public class Application
-
-{
-
-   
-	 public static void main(String[] args) 
+{	 public static void main(String[] args) 
 	{
-        
-		SpringApplication.run(Application.class, args);
-    
-	}
-
+   		SpringApplication.run(Application.class, args);
+    	}
 }
 
 
@@ -134,6 +99,4 @@ public class Application
 #If you want your name
 ex: http://localhost:8080/greeting?name=mitesh
 
-
-                                                     
-		
+                      
